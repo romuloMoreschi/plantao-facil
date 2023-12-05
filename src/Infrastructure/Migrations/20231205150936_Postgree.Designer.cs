@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(PlantaoFacilContext))]
-    [Migration("20231205133038_Initials")]
-    partial class Initials
+    [Migration("20231205150936_Postgree")]
+    partial class Postgree
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -145,7 +145,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("character varying(255)");
 
                     b.Property<DateTime>("Horario")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp");
 
                     b.Property<int>("NumeroVagasDisponiveis")
                         .HasColumnType("integer");

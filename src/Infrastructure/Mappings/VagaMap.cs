@@ -12,7 +12,7 @@ public class VagaMap : IEntityTypeConfiguration<Vaga>
 
         builder.HasKey(v => v.Id);
 
-        builder.Property(v => v.Horario).IsRequired();
+        builder.Property(v => v.Horario).HasColumnType("timestamp").IsRequired();
 
         builder.Property(v => v.Funcao).IsRequired().HasMaxLength(255);
 

@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Initials : Migration
+    public partial class Postgree : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -58,7 +58,7 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Horario = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Horario = table.Column<DateTime>(type: "timestamp", nullable: false),
                     Funcao = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
                     NumeroVagasDisponiveis = table.Column<int>(type: "integer", nullable: false),
                     SituacaoId = table.Column<long>(type: "bigint", nullable: false),

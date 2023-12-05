@@ -21,6 +21,7 @@ public class VagaService : IVagaService
     {
         var job = _mapper.Map<Vaga>(vagaDto);
 
+        job.Horario = new DateTime(vagaDto.Horario.Ticks);
         job.SituacaoId = 1;
 
         job.Validate();
