@@ -22,6 +22,8 @@ public class EscalaService : IEscalaService
     {
         var escale = _mapper.Map<Escala>(escalaDto);
 
+        escale.DataInicial = new DateTime(escalaDto.DataInicial.Ticks);
+        escale.DataTermino = new DateTime(escalaDto.DataTermino.Ticks);
         escale.Validate();
         var escaleCreated = await _escalaRepository.Create(escale);
 
