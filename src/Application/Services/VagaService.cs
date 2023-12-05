@@ -38,6 +38,7 @@ public class VagaService : IVagaService
 
         var job = _mapper.Map<Vaga>(vagaDto);
 
+        job.Horario = new DateTime(vagaDto.Horario.Ticks);
         job.Validate();
         var jobUpdated = await _vagaRepository.Update(job);
 

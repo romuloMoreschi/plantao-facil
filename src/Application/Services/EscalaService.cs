@@ -30,17 +30,17 @@ public class EscalaService : IEscalaService
         return _mapper.Map<EscalaDto>(escaleCreated);
     }
 
-    public async Task<EscalaDto> Update(EscalaDto escalaDto, long id)
+    public async Task<EscalaDto> Update(EscalaDto escalaDto)
     {
         var escaleExists = await _escalaRepository.GetById(escalaDto.Id);
 
         if (escaleExists == null)
             throw new Exception("Não existe nenhuma escala com o id informado!");
 
-        if (escaleExists.Id != id) throw new Exception("O id informado não confere com o id da escala!");
-
         var escale = _mapper.Map<Escala>(escalaDto);
 
+        escale.DataInicial = new DateTime(escalaDto.DataInicial.Ticks);
+        escale.DataTermino = new DateTime(escalaDto.DataTermino.Ticks);
         escale.Validate();
         var escalaUpdated = await _escalaRepository.Update(escale);
 
