@@ -12,6 +12,10 @@ public class EscalaMap : IEntityTypeConfiguration<Escala>
 
         builder.HasKey(e => e.Id);
 
+        builder.Property(e => e.DataInicial).HasColumnType("timestamp").IsRequired();
+
+        builder.Property(e => e.DataTermino).HasColumnType("timestamp").IsRequired();
+
         builder
             .HasMany(e => e.Vagas)
             .WithOne(e => e.Escala)
